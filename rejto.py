@@ -14,9 +14,9 @@ class Rejto_corpus():
         for sent in self.raw_sents:
             current_sent = []
             for word in sent.split(" "):
-                if word != "\n":
-                    self.all_words.add(word)
-                    current_sent.append(word)
+                if word.replace(" ","") != "\n" and word !="":
+                    self.all_words.add(word.replace("\xad","").replace("\n",""))
+                    current_sent.append(word.replace("\xad","").replace("\n",""))
             self.sentences.append(current_sent)
 
     def words(self):
