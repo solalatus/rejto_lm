@@ -14,10 +14,12 @@ class Rejto_corpus():
         for sent in self.raw_sents:
             current_sent = []
             for word in sent.split(" "):
-                if word.replace(" ","") != "\n" and word !="":
-                    self.all_words.add(word.replace("\xad","").replace("\n",""))
-                    current_sent.append(word.replace("\xad","").replace("\n",""))
-            self.sentences.append(current_sent)
+                word_tmp = word.replace("\n","").replace(" ","")
+                if word_tmp !="":
+                    self.all_words.add(word.replace("\xad",""))
+                    current_sent.append(word.replace("\xad",""))
+            if current_sent != []:
+                self.sentences.append(current_sent)
 
     def words(self):
         return list(self.all_words)
