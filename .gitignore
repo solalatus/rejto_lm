@@ -1,3 +1,4 @@
 __pycache__/
-rejto_model.zip
+*.zip
 rejto_model/
+30length_15epochs/
